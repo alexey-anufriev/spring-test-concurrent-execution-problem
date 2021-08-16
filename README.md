@@ -1,4 +1,4 @@
-# spring-test_utils-concurrent-execution-problem
+# spring-test-concurrent-execution-problem
 
 ### Issue reproducer
 
