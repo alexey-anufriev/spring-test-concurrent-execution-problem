@@ -7,6 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.annotation.Repeat;
 import org.springframework.test.context.junit4.rules.SpringClassRule;
 import test_utils.ConcurrentSpringMethodRule;
 import test_utils.ConcurrentTest;
@@ -36,6 +37,13 @@ public class ConcurrentSampleTest {
     @ConcurrentTest
     @Test
     public void concurrentTest() {
+        when(this.someBean.getData()).thenReturn("some other data");
+        assertEquals(this.someBean.getData(), "some other data");
+    }
+
+    @Repeat(2)
+    @Test
+    public void repeatableTest() {
         when(this.someBean.getData()).thenReturn("some other data");
         assertEquals(this.someBean.getData(), "some other data");
     }
